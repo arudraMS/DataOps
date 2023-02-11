@@ -2,6 +2,7 @@ trigger: none
 
 pr: none
 
+
 resources:
   pipelines:
   - pipeline: ciartifacts
@@ -25,10 +26,10 @@ stages:
 - stage: deploy_to_prod
   displayName: 'Deploy to Prod'
   variables:
-  - group: mdwdops-release-prod
+  - group: mdwdops-prod-release
   jobs: 
   - template: templates/jobs/deploy-adf-job.yml
     parameters:
       environmentName: 'PROD'
-      serviceConnection: 'mdwdops-serviceconnection-prod'
+      serviceConnection: 'mdwdops-prod-serviceconnection'
       
